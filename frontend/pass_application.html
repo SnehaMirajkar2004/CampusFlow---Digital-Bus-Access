@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusFlow - Pass Application</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191b23",
+                        "surface-bright": "#f9f9ff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface": "#f9f9ff",
+                        "surface-tint": "#005ac2",
+                        "tertiary": "#924700",
+                        "secondary-container": "#8455ef",
+                        "primary-container": "#2170e4",
+                        "on-tertiary-container": "#fffbff",
+                        "on-primary-fixed": "#001a42",
+                        "tertiary-container": "#b75b00",
+                        "on-primary-container": "#fefcff",
+                        "on-secondary-container": "#fffbff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#23005c",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#004395",
+                        "primary": "#0058be",
+                        "inverse-primary": "#adc6ff",
+                        "surface-container-highest": "#e1e2ec",
+                        "surface-variant": "#e1e2ec",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#311400",
+                        "inverse-on-surface": "#eff0fa",
+                        "on-surface": "#191b23",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "tertiary-fixed": "#ffdcc6",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-surface-variant": "#424754",
+                        "outline": "#727785",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-dim": "#d8d9e3",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "background": "#f9f9ff",
+                        "surface-container-high": "#e6e7f2",
+                        "surface-container": "#ecedf7",
+                        "surface-container-low": "#f2f3fd",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2e3038",
+                        "secondary": "#6b38d4",
+                        "outline-variant": "#c2c6d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "stack-lg": "48px",
+                        "unit": "8px",
+                        "stack-md": "24px",
+                        "margin-page": "40px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Inter"],
+                        "h2": ["Inter"],
+                        "caption": ["Inter"],
+                        "h1": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "h2": ["36px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.7", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 16px;
+        }
+        .sidebar-glass {
+            background: rgba(249, 249, 255, 0.9);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="sidebar-glass h-screen w-64 fixed left-0 top-0 border-r border-white/20 shadow-2xl shadow-primary/5 flex flex-col py-stack-sm overflow-y-auto z-40">
+<div class="px-6 py-8">
+<h1 class="font-h3 text-h3 font-bold text-primary">CampusFlow</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Student Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:translate-x-1 transition-transform" href="passenger_dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:translate-x-1 transition-transform" href="public_routes.html">
+<span class="material-symbols-outlined">directions_bus</span>
+<span class="font-label-sm text-label-sm">View Routes</span>
+</a>
+<!-- Active Tab: My Passes -->
+<a class="bg-gradient-to-r from-primary to-secondary text-on-primary rounded-xl mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:translate-x-1 transition-transform" href="pass_status.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="font-label-sm text-label-sm">My Passes</span>
+
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-sm text-label-sm">Support</span>
+</a>
+</nav>
+<div class="p-4">
+<button class="w-full bg-primary-container text-on-primary-container rounded-xl py-3 font-label-sm text-label-sm font-semibold shadow-lg shadow-primary/10">
+                Renew Pass
+            </button>
+<a class="logout-btn mt-4 text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm text-label-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 p-margin-page max-w-container-max mx-auto">
+<!-- Header -->
+<header class="mb-stack-lg">
+<h2 class="font-h2 text-h2 text-on-background">Apply for Route Pass</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Complete the form below to request access to campus transit routes.</p>
+</header>
+<!-- Multi-step Indicator -->
+<div class="flex items-center justify-center mb-stack-lg max-w-2xl mx-auto">
+<div class="flex items-center w-full">
+<div class="flex flex-col items-center flex-1 relative">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold z-10 shadow-lg shadow-primary/20">1</div>
+<span class="absolute top-12 font-label-sm text-label-sm text-primary font-bold">Route Selection</span>
+</div>
+<div class="h-1 bg-primary/20 flex-1 -mt-5"></div>
+<div class="flex flex-col items-center flex-1 relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold z-10">2</div>
+<span class="absolute top-12 font-label-sm text-label-sm text-on-surface-variant">Review Details</span>
+</div>
+<div class="h-1 bg-primary/20 flex-1 -mt-5"></div>
+<div class="flex flex-col items-center flex-1 relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold z-10">3</div>
+<span class="absolute top-12 font-label-sm text-label-sm text-on-surface-variant">Submission</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start mt-16">
+<!-- Left: Form Section -->
+<form id="apply-pass-form" class="lg:col-span-7 space-y-gutter">
+<div id="apply-error" class="hidden text-error font-label-sm bg-error-container p-3 rounded-lg text-center"></div>
+<div class="glass-card p-stack-md shadow-[0_20px_40px_rgba(59,130,246,0.05)]">
+<h3 class="font-h3 text-h3 mb-stack-md">Select Your Route</h3>
+<div class="space-y-4">
+<label class="block">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2 block">Transit Network</span>
+<select id="route-select" class="w-full bg-[#F8FAFC] border-outline-variant rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all appearance-none" required>
+<option value="" disabled selected>Loading routes...</option>
+</select>
+</label>
+<div class="grid grid-cols-2 gap-4">
+<label class="block">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2 block">Effective Start Date</span>
+<input class="w-full bg-[#F8FAFC] border-outline-variant rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="date"/>
+</label>
+<label class="block">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2 block">Pass Duration</span>
+<select class="w-full bg-[#F8FAFC] border-outline-variant rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+<option>Full Semester</option>
+<option>Monthly</option>
+<option>Quarterly</option>
+</select>
+</label>
+</div>
+<label class="block mt-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2 block">Reason for Application</span>
+<textarea class="w-full bg-[#F8FAFC] border-outline-variant rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Explain your transit needs (e.g., late-night laboratory sessions, off-campus housing)..." rows="4"></textarea>
+</label>
+</div>
+</div>
+<div class="flex justify-between items-center px-4">
+<button type="button" onclick="window.location.href='passenger_dashboard.html'" class="text-primary font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Back to Dashboard
+                    </button>
+<button type="submit" class="bg-gradient-to-r from-primary to-secondary text-on-primary px-8 py-3 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        Submit Application
+                    </button>
+</div>
+</form>
+<!-- Right: Route Preview Timeline -->
+<div class="lg:col-span-5 space-y-gutter">
+<div class="glass-card overflow-hidden shadow-[0_20px_40px_rgba(59,130,246,0.05)]">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="A clean, high-angle aerial photograph of a modern university campus with winding walking paths and transit roads. The scene is bathed in soft morning sunlight, creating long shadows and a vibrant, crisp light-mode aesthetic. The architecture is a blend of glass-and-steel modernism and traditional stone buildings, surrounded by lush green spaces and mature trees, conveying a sense of academic focus and efficient infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ2tnPcJUz4IGxcWBPnIBwN2QUkyfRNw1GQSdk7sijyEVlfsK4ekJ7yTQLZ7egD20AFKevSTnS7fH5vdKA3kImR3O0xRm5OtAX0x8scJC8WQXporHzQkljYPQ14amcQ6OiB8U43vz5ALAHrhkHfaPAgGLaA26q5BO5aB0UFIidDzMHOqOBjxk2omTQT8WXwRNo4sV0OvkNenGuhNmp5hgQxzX6GC6xDqN_xHd1X8RIkJMTTubStdMBpUXQrk3y-Ez651Y6InILTA4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+<div class="text-white">
+<p class="text-caption font-caption uppercase tracking-widest opacity-80">Current Selection</p>
+<h4 class="font-h3 text-h3">North Campus Express</h4>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h5 class="font-label-sm text-label-sm text-on-surface-variant mb-6 uppercase tracking-wider">Route Timeline</h5>
+<div class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-z-10 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary/40 before:to-secondary/40">
+<!-- Stop 1 -->
+<div class="relative flex items-center gap-6">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-primary text-sm">school</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm font-bold">Main Gate Plaza</p>
+<p class="font-caption text-caption text-on-surface-variant">Departs every 15 min</p>
+</div>
+</div>
+<!-- Stop 2 -->
+<div class="relative flex items-center gap-6">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-primary/40 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">science</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm font-bold">Engineering Complex</p>
+<p class="font-caption text-caption text-on-surface-variant">ETA: 8 min from Start</p>
+</div>
+</div>
+<!-- Stop 3 -->
+<div class="relative flex items-center gap-6">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-primary/40 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">menu_book</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm font-bold">Central Library</p>
+<p class="font-caption text-caption text-on-surface-variant">Major Transfer Hub</p>
+</div>
+</div>
+<!-- Stop 4 -->
+<div class="relative flex items-center gap-6">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white text-sm">apartment</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm font-bold">Graduate Housing</p>
+<p class="font-caption text-caption text-on-surface-variant">Arrival Hub</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container-highest">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Estimated Daily Frequency</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">32 Trips</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Peak Waiting Time</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">5-7 min</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="bg-primary-fixed text-on-primary-fixed p-6 rounded-2xl flex gap-4">
+<span class="material-symbols-outlined text-primary">info</span>
+<div>
+<p class="font-label-sm text-label-sm font-bold">Important Note</p>
+<p class="font-caption text-caption opacity-80 mt-1 leading-relaxed">Applications are typically processed within 24-48 business hours. You will receive an email notification once your digital pass is active in the "My Passes" section.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB (Suppressed on this transactional screen as per guidelines) -->
+<script src="js/utils.js"></script>
+<script src="js/api.js"></script>
+<script src="js/pass.js"></script>
+</body></html>

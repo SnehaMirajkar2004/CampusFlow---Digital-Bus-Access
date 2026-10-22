@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusFlow | Modern Campus Transit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#191b23",
+                    "surface-bright": "#f9f9ff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "surface": "#f9f9ff",
+                    "surface-tint": "#005ac2",
+                    "tertiary": "#924700",
+                    "secondary-container": "#8455ef",
+                    "primary-container": "#2170e4",
+                    "on-tertiary-container": "#fffbff",
+                    "on-primary-fixed": "#001a42",
+                    "tertiary-container": "#b75b00",
+                    "on-primary-container": "#fefcff",
+                    "on-secondary-container": "#fffbff",
+                    "primary-fixed-dim": "#adc6ff",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#23005c",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#004395",
+                    "primary": "#0058be",
+                    "inverse-primary": "#adc6ff",
+                    "surface-container-highest": "#e1e2ec",
+                    "surface-variant": "#e1e2ec",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#311400",
+                    "inverse-on-surface": "#eff0fa",
+                    "on-surface": "#191b23",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#d8e2ff",
+                    "tertiary-fixed": "#ffdcc6",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "on-surface-variant": "#424754",
+                    "outline": "#727785",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-dim": "#d8d9e3",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "background": "#f9f9ff",
+                    "surface-container-high": "#e6e7f2",
+                    "surface-container": "#ecedf7",
+                    "surface-container-low": "#f2f3fd",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2e3038",
+                    "secondary": "#6b38d4",
+                    "outline-variant": "#c2c6d6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "stack-sm": "12px",
+                    "gutter": "24px",
+                    "stack-lg": "48px",
+                    "unit": "8px",
+                    "stack-md": "24px",
+                    "margin-page": "40px"
+            },
+            "fontFamily": {
+                    "h3": ["Inter"],
+                    "h2": ["Inter"],
+                    "caption": ["Inter"],
+                    "h1": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "h2": ["36px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.7", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 60px -12px rgba(59, 130, 246, 0.08);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #0058be 0%, #6b38d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-main {
+            background: linear-gradient(135deg, #0058be 0%, #6b38d4 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed-dim">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center px-margin-page py-4 w-full max-w-container-max mx-auto z-50 sticky docked full-width top-0 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0_20px_40px_rgba(59,130,246,0.05)]">
+<div class="font-h3 text-h3 font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">CampusFlow</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-body-md text-body-md text-primary font-semibold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="index.html">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="public_routes.html">Routes</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="login.html">Login</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="register.html">Register</a>
+</div>
+<button onclick="window.location.href='register.html'" class="bg-gradient-main text-on-primary px-6 py-2.5 rounded-full font-label-sm text-label-sm font-semibold shadow-lg shadow-primary/20 hover:opacity-90 active:scale-95 transition-all">
+            Get Started
+        </button>
+</nav>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative pt-24 pb-stack-lg px-margin-page overflow-hidden">
+<div class="max-w-container-max mx-auto grid lg:grid-cols-2 gap-stack-lg items-center">
+<div class="relative z-10">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm mb-6">
+                        Streamlined Campus Transit
+                    </span>
+<h1 class="font-h1 text-h1 text-on-surface mb-6 leading-tight">
+                        Revolutionizing Your <span class="text-gradient">Daily Campus</span> Commute.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        A modern, efficient platform for students and faculty to manage shuttle routes, digital passes, and real-time schedules with academic precision.
+                    </p>
+<div class="flex flex-wrap gap-stack-md">
+<button onclick="window.location.href='register.html'" class="bg-gradient-main text-on-primary px-8 py-4 rounded-xl font-label-sm text-label-sm font-bold shadow-2xl shadow-primary/30 hover:translate-y-[-2px] transition-all active:scale-95">
+                            Get Started
+                        </button>
+<button onclick="window.location.href='public_routes.html'" class="glass-card text-primary px-8 py-4 rounded-xl font-label-sm text-label-sm font-bold border-primary/20 hover:bg-white transition-all active:scale-95">
+                            View Routes
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-20 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-20 -left-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="relative glass-card p-4 rounded-[2rem] overflow-hidden">
+<img alt="Campus Shuttle Illustration" class="w-full h-auto rounded-2xl" data-alt="A clean, minimalist 3D illustration of a modern electric campus shuttle bus driving through a stylized college campus. The scene features soft daylight, sleek architectural structures in the background, and a color palette dominated by bright whites, sky blues, and deep purples. The mood is futuristic, professional, and tranquil, reflecting efficient academic logistics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrylMEGRRDdNChOa0SmN5B96Dsv5NzrLZKQp6yh8FnWtKVS5JKLkVhjVZt6Ypj9a1nwjRJs3ayfD6TziBqlWd5BhQRddNH-4PwidW1rZX9S6SSkXav20p51_CXl5o2kVBLLUSyAGKrAj-rS3O7ym-kQM80NTN8nb2lwJkSz27s8uOiYSBkr_9GRTYQPcJcodxjX5Z9KnPGfuPmtDycIqcLyKdNrXdjtZifAv_Ao0PBjbdH77_rENLjseWTL3Eb4AP57AzEuGhn7yo"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Features -->
+<section class="py-stack-lg px-margin-page bg-surface-container-low/30">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-h2 text-h2 text-on-surface mb-4">Integrated Academic Transit</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Built for the high-performance campus ecosystem.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Feature 1: Route Management -->
+<div class="md:col-span-8 glass-card p-10 rounded-[2rem] flex flex-col justify-between overflow-hidden group">
+<div class="flex justify-between items-start">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-[32px]">map</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-4">Route Management</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                                    Real-time tracking and optimization of campus shuttle routes. Dynamic adjustments based on student density and class schedules.
+                                </p>
+</div>
+<div class="hidden lg:block">
+<img alt="Route Map Visualization" class="w-64 h-48 object-cover rounded-xl shadow-lg" data-alt="A detailed, high-contrast digital map interface showing glowing route lines across a university campus layout. The UI elements are sleek and glassmorphic, with soft blue pulses representing active transit vehicles. The lighting is bright and clean, with a focus on data visualization and modern navigation aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZA34zPJay7TI9kSAyCT3lpiRqcEfmZElLQjycsbWye0v3e4vTH6QeyRHhlZxzE2ntbckOFL-223I_gFUBxGyInMTZj15oTjwKZ09jsv-YLrFj3V7i-w73d3USYdkkWeQbx_OmNZ3aUZqWIdwZ3xHZd0sKyZR-8kmo7yqrfr3od0weLpa8EIyidmESrZspWoyfl6xXMaFHzg6Z9ShBsZq5XW5yvkzubu0OvZuXrZYnl1xwa0yN_L__iH_68tzxbnTduU7jx6Nt7PE"/>
+</div>
+</div>
+</div>
+<!-- Feature 2: Secure Auth -->
+<div class="md:col-span-4 glass-card p-10 rounded-[2rem] flex flex-col group">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-[32px]">verified_user</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-4">Secure Authentication</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Single Sign-On (SSO) integration with university credentials for effortless student access.
+                        </p>
+</div>
+<!-- Feature 3: Digital Pass -->
+<div class="md:col-span-4 glass-card p-10 rounded-[2rem] flex flex-col group">
+<div class="w-14 h-14 rounded-2xl bg-tertiary-fixed flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-[32px]">qr_code_2</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-4">Digital Pass Requests</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Instant pass generation with unique QR codes for contactless boarding and security verification.
+                        </p>
+</div>
+<!-- Feature 4: Admin Approval -->
+<div class="md:col-span-8 glass-card p-10 rounded-[2rem] flex items-center justify-between group overflow-hidden">
+<div class="max-w-md">
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-[32px]">rule</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-4">Admin Approval</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Automated workflows for administrative review of pass requests, ensuring compliance with university policies.
+                            </p>
+</div>
+<div class="hidden sm:flex flex-col gap-3">
+<div class="bg-white/50 p-3 rounded-lg border border-white/20 flex items-center gap-3 w-48 blur-[1px]">
+<div class="w-8 h-8 rounded-full bg-primary-container"></div>
+<div class="h-2 w-20 bg-primary/20 rounded"></div>
+</div>
+<div class="bg-white/50 p-3 rounded-lg border border-white/20 flex items-center gap-3 w-48">
+<div class="w-8 h-8 rounded-full bg-secondary-container"></div>
+<div class="h-2 w-24 bg-secondary/20 rounded"></div>
+</div>
+<div class="bg-white/50 p-3 rounded-lg border border-white/20 flex items-center gap-3 w-48 blur-[1px]">
+<div class="w-8 h-8 rounded-full bg-tertiary-container"></div>
+<div class="h-2 w-16 bg-tertiary/20 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-stack-lg px-margin-page">
+<div class="max-w-container-max mx-auto glass-card rounded-[3rem] p-12 bg-gradient-to-br from-primary/5 to-secondary/5 border-white/40">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-stack-lg text-center">
+<div>
+<div class="font-h1 text-h1 text-primary mb-2">15k+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Students</div>
+</div>
+<div>
+<div class="font-h1 text-h1 text-primary mb-2">42</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Shuttle Routes</div>
+</div>
+<div>
+<div class="font-h1 text-h1 text-primary mb-2">99.9%</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">On-Time Performance</div>
+</div>
+<div>
+<div class="font-h1 text-h1 text-primary mb-2">0.5s</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Scan Response</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-stack-lg px-margin-page text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-primary-fixed/30 -z-10 blur-3xl opacity-50"></div>
+<div class="max-w-3xl mx-auto">
+<h2 class="font-h1 text-h1 text-on-surface mb-6">Ready to streamline your campus travel?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                    Join thousands of students and faculty members who have already transformed their daily commute.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-stack-md">
+<button onclick="window.location.href='register.html'" class="bg-gradient-main text-on-primary px-10 py-5 rounded-2xl font-label-sm text-label-sm font-bold shadow-2xl shadow-primary/40 hover:scale-105 transition-all">
+                        Get Started Now
+                    </button>
+<button class="glass-card px-10 py-5 rounded-2xl font-label-sm text-label-sm font-bold hover:bg-white transition-all">
+                        Contact Support
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant py-stack-lg px-margin-page">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="font-h3 text-h3 font-bold text-primary mb-6">CampusFlow</div>
+<p class="font-caption text-caption text-on-surface-variant">
+                        The definitive transit operating system for modern academic institutions. Efficiency, security, and clarity for every passenger.
+                    </p>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm font-bold text-on-surface mb-6 uppercase tracking-widest">Platform</h4>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="public_routes.html">Routes</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Digital Passes</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Schedules</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm font-bold text-on-surface mb-6 uppercase tracking-widest">Institution</h4>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Admin Portal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Compliance</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm font-bold text-on-surface mb-6 uppercase tracking-widest">Support</h4>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-stack-md text-on-surface-variant font-caption text-caption">
+<div>© 2024 CampusFlow Transit Systems. All academic rights reserved.</div>
+<div class="flex gap-stack-lg">
+<a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-primary transition-colors" href="#">X / Twitter</a>
+<a class="hover:text-primary transition-colors" href="#">GitHub</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

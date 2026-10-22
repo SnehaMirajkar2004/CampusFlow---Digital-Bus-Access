@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusFlow | Student Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#191b23",
+                    "surface-bright": "#f9f9ff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "surface": "#f9f9ff",
+                    "surface-tint": "#005ac2",
+                    "tertiary": "#924700",
+                    "secondary-container": "#8455ef",
+                    "primary-container": "#2170e4",
+                    "on-tertiary-container": "#fffbff",
+                    "on-primary-fixed": "#001a42",
+                    "tertiary-container": "#b75b00",
+                    "on-primary-container": "#fefcff",
+                    "on-secondary-container": "#fffbff",
+                    "primary-fixed-dim": "#adc6ff",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#23005c",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#004395",
+                    "primary": "#0058be",
+                    "inverse-primary": "#adc6ff",
+                    "surface-container-highest": "#e1e2ec",
+                    "surface-variant": "#e1e2ec",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#311400",
+                    "inverse-on-surface": "#eff0fa",
+                    "on-surface": "#191b23",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#d8e2ff",
+                    "tertiary-fixed": "#ffdcc6",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "on-surface-variant": "#424754",
+                    "outline": "#727785",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-dim": "#d8d9e3",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "background": "#f9f9ff",
+                    "surface-container-high": "#e6e7f2",
+                    "surface-container": "#ecedf7",
+                    "surface-container-low": "#f2f3fd",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2e3038",
+                    "secondary": "#6b38d4",
+                    "outline-variant": "#c2c6d6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "stack-sm": "12px",
+                    "gutter": "24px",
+                    "stack-lg": "48px",
+                    "unit": "8px",
+                    "stack-md": "24px",
+                    "margin-page": "40px"
+            },
+            "fontFamily": {
+                    "h3": ["Inter"],
+                    "h2": ["Inter"],
+                    "caption": ["Inter"],
+                    "h1": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "h2": ["36px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.7", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 30px 60px -12px rgba(59, 130, 246, 0.08);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl border-b border-white/10 shadow-[0_20px_40px_rgba(59,130,246,0.05)] flex justify-between items-center px-margin-page py-4 w-full max-w-container-max mx-auto z-50 sticky top-0">
+<div class="font-h3 text-h3 font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">CampusFlow</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="index.html">Home</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="public_routes.html">Routes</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="login.html">Login</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="register.html">Register</a>
+<button onclick="window.location.href='register.html'" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-semibold active:scale-95 transition-transform">Get Started</button>
+</div>
+<button class="md:hidden p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<div class="flex max-w-container-max mx-auto min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen w-64 sticky left-0 top-0 bg-surface/90 dark:bg-surface-container-low/90 backdrop-blur-2xl border-r border-white/20 shadow-2xl shadow-primary/5 py-stack-sm overflow-y-auto">
+<div class="px-6 mb-8 mt-4">
+<div class="font-h3 text-h3 font-bold text-primary">Student Portal</div>
+<div class="text-on-surface-variant text-label-sm font-label-sm">Academic Year 2023-24</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:translate-x-1 transition-transform" href="passenger_dashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:translate-x-1 transition-transform" href="public_routes.html">
+<span class="material-symbols-outlined" data-icon="directions_bus">directions_bus</span>
+<span class="font-label-sm text-label-sm">View Routes</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:translate-x-1 transition-transform" href="pass_status.html">
+<span class="material-symbols-outlined" data-icon="confirmation_number">confirmation_number</span>
+<span class="font-label-sm text-label-sm">My Passes</span>
+</a>
+
+<a class="bg-gradient-to-r from-primary to-secondary text-on-primary rounded-xl mx-2 my-1 px-4 py-3 flex items-center gap-3" href="passenger_profile.html">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl mx-2 my-1 px-4 py-3 flex items-center gap-3 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-label-sm text-label-sm">Support</span>
+</a>
+</nav>
+<div class="px-4 mt-auto mb-4">
+<button onclick="window.location.href='pass_application.html'" class="w-full bg-primary-container/10 text-primary py-3 rounded-xl font-semibold mb-4 border border-primary/20 hover:bg-primary-container/20 transition-all">
+                    Renew Pass
+                </button>
+<a class="logout-btn text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-3 flex items-center gap-3 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-sm text-label-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-margin-page bg-surface-bright">
+<header class="mb-stack-lg">
+<h1 class="font-h1 text-h1 text-on-background mb-2">My Profile</h1>
+<p class="text-on-surface-variant text-body-lg font-body-lg">Manage your academic travel credentials and personal information.</p>
+</header>
+<!-- Profile Bento Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Section: Status & Info -->
+<div class="lg:col-span-4 space-y-gutter">
+<div class="glass-card rounded-xl p-8 flex flex-col items-center text-center">
+<div class="relative mb-6">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-primary/10 shadow-lg">
+<img alt="Student Avatar" class="w-full h-full object-cover" data-alt="A professional studio portrait of a college student with a friendly expression. The background is a soft, blurred academic library setting with clean light-mode tones. The lighting is bright and airy, creating a modern, welcoming professional profile aesthetic. The overall color palette is dominated by soft whites and primary blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2DomEw_2v8sZeL3yiaH40-dyf-YiP-ZwN30ulvwyujJu28KUAhzHp6NSy8Fsom3g81d9a4i7kdUTZBr1Zv2DCV5lWl4oQDXR2hXj8s6NLhzXACt5FqBNCff_KYqqg2j_tEweeMFtNKkSodvzHN1QiG13mRaSn0s-ly4rDXZJIDFwSA0NE8MXb4CqAUY5XhcMyq5RfbvU5bV_ybCzS2ntTS9VPDyWjPZsH8-54nEfaeGFpb1wy76Zpoxa7Vy8TvU8YA3ykSUy7aoA"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-on-primary p-2 rounded-full shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+<h2 class="font-h3 text-h3 text-on-background user-name-display">Alex Henderson</h2>
+<p class="text-primary font-semibold text-label-sm mb-4">Computer Science Senior</p>
+<div class="w-full bg-surface-container-low rounded-xl p-4 flex justify-around">
+<div class="text-center">
+<div class="text-primary font-bold text-h3">142</div>
+<div class="text-caption text-on-surface-variant">Trips</div>
+</div>
+<div class="w-px h-10 bg-outline-variant/30"></div>
+<div class="text-center">
+<div class="text-primary font-bold text-h3">A+</div>
+<div class="text-caption text-on-surface-variant">Rating</div>
+</div>
+</div>
+</div>
+<!-- Travel Pass Card -->
+<div class="bg-gradient-to-br from-primary to-secondary p-6 rounded-xl text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-12">
+<div>
+<p class="text-white/70 text-caption font-label-sm uppercase tracking-widest">Active Pass</p>
+<h3 class="font-h3 text-h3">Universal Student Pass</h3>
+</div>
+<span class="material-symbols-outlined text-4xl opacity-50">wifi_tethering</span>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-white/60 text-caption">Student ID</p>
+<p class="font-mono text-body-md tracking-widest">**** **** 8291</p>
+</div>
+<div class="text-right">
+<p class="text-white/60 text-caption">Expires</p>
+<p class="font-semibold text-body-md">06 / 24</p>
+</div>
+</div>
+</div>
+<!-- Abstract Glass Shape Overlay -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-10 -top-10 w-32 h-32 bg-secondary-container/20 rounded-full blur-2xl"></div>
+</div>
+</div>
+<!-- Right Section: Form -->
+<div class="lg:col-span-8">
+<div class="glass-card rounded-xl p-stack-lg h-full">
+<div class="flex items-center gap-4 mb-stack-md">
+<div class="p-3 bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">manage_accounts</span>
+</div>
+<h2 class="font-h3 text-h3">Personal Information</h2>
+</div>
+<form id="profile-form" class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="space-y-2">
+<label class="text-label-sm font-semibold text-on-surface-variant ml-1">Full Name</label>
+<input id="profile-name" class="w-full bg-surface-container-lowest border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 transition-all" type="text" value="Alex Henderson"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-semibold text-on-surface-variant ml-1">Student ID</label>
+<input class="w-full bg-surface-container-low border-transparent text-on-surface-variant cursor-not-allowed rounded-xl px-4 py-3" disabled="" type="text" value="STUD-2023-8912"/>
+</div>
+<div class="space-y-2 md:col-span-2">
+<label class="text-label-sm font-semibold text-on-surface-variant ml-1">Email Address</label>
+<input id="profile-email" class="w-full bg-surface-container-low border-transparent focus:border-primary text-on-surface-variant cursor-not-allowed rounded-xl px-4 py-3 transition-all" type="email" value="alex.henderson@university.edu" readonly=""/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-semibold text-on-surface-variant ml-1">Phone Number</label>
+<input id="profile-phone" class="w-full bg-surface-container-lowest border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 transition-all" type="tel" value="+1 (555) 123-4567"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-semibold text-on-surface-variant ml-1">Emergency Contact</label>
+<input class="w-full bg-surface-container-lowest border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 transition-all" type="tel" value="+1 (555) 987-6543"/>
+</div>
+<div class="space-y-2 md:col-span-2">
+<label class="text-label-sm font-semibold text-on-surface-variant ml-1">Campus Address</label>
+<textarea class="w-full bg-surface-container-lowest border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 transition-all" rows="3">128 Academic Plaza, West Wing Dormitory, Suite 402, Metro University Campus.</textarea>
+</div>
+<div class="md:col-span-2 flex items-center gap-4 pt-4 border-t border-outline-variant/20 mt-4">
+<button id="profile-save-btn" class="bg-gradient-to-r from-primary to-secondary text-on-primary px-8 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-transform" type="submit">
+                                    Update Profile
+                                </button>
+<button class="text-on-surface-variant font-semibold hover:text-primary px-6 py-3 transition-colors" type="button">
+                                    Cancel
+                                </button>
+</div>
+<div id="profile-error" class="hidden text-error mt-4 md:col-span-2 text-center text-sm font-semibold bg-error-container p-2 rounded-lg"></div>
+</form>
+</div>
+</div>
+<!-- Recent Activity / Map Preview (Extra Bento Cell) -->
+<div class="lg:col-span-12">
+<div class="glass-card rounded-xl p-8 overflow-hidden relative min-h-[300px] flex flex-col md:flex-row gap-gutter">
+<div class="flex-1 space-y-4">
+<h3 class="font-h3 text-h3">Home Route Preview</h3>
+<p class="text-on-surface-variant">Your most frequent route between <span class="text-primary font-semibold">Central Library</span> and <span class="text-primary font-semibold">West Dormitory</span> is currently running on schedule.</p>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-primary-container/10 text-primary rounded-full text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm">schedule</span> 12 mins
+                                </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-secondary-container/10 text-secondary rounded-full text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm">directions_bus</span> Bus #42
+                                </div>
+</div>
+</div>
+<div class="flex-1 h-48 md:h-auto rounded-xl overflow-hidden border border-outline-variant/30 relative">
+<img alt="Campus Map" class="w-full h-full object-cover grayscale opacity-50" data-alt="A stylized, high-contrast map of a modern college campus with clean vector-like lines. The map uses a minimalist light-mode aesthetic with soft blue and grey tones. Navigation routes are highlighted in vibrant electric blue. The overall mood is architectural and precise, fitting for a modern transportation software interface." data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGd3i-wZRQ-sQHilbO83o54yZUFjIMU9dWawkRcJeY-yCxNYD55OPpT5WU8_dxU8CC_Ckfyg6tFMsL6eNcJKMSh805ZVovVzar5Cjp494V14k3YTjH6Tkbovh9ZsI31Uel3b7k7wSDihS5NvQbvp7ZW0Ss_uNQU1AfO2yg5TynDMFxrQfdYbN2HjGdp5Qtra6EfWaSHrR1gL14zmkGQHF5syPHTJmn6hVJUfwGMPAo0bHTb5zs6gj0eghKutji5vXZwcPm3Rgitgg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface/80 to-transparent flex items-center justify-center">
+<button class="bg-white/90 backdrop-blur-md px-6 py-3 rounded-full text-primary font-bold shadow-xl border border-primary/20 flex items-center gap-2">
+<span class="material-symbols-outlined">map</span>
+                                    Open Full Route Map
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/80 backdrop-blur-xl border-t border-white/10 px-6 py-3 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="passenger_dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-caption">Dash</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="public_routes.html">
+<span class="material-symbols-outlined">directions_bus</span>
+<span class="text-caption">Routes</span>
+</a>
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center -mt-8 shadow-lg shadow-primary/30 border-4 border-background text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</div>
+<a class="flex flex-col items-center gap-1 text-primary" href="passenger_profile.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-caption font-semibold">Profile</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-caption">Settings</span>
+</a>
+</nav>
+<script src="js/utils.js"></script>
+<script src="js/api.js"></script>
+<script src="js/profile.js"></script>
+</body></html>

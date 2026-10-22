@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusFlow Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#191b23",
+                    "surface-bright": "#f9f9ff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "surface": "#f9f9ff",
+                    "surface-tint": "#005ac2",
+                    "tertiary": "#924700",
+                    "secondary-container": "#8455ef",
+                    "primary-container": "#2170e4",
+                    "on-tertiary-container": "#fffbff",
+                    "on-primary-fixed": "#001a42",
+                    "tertiary-container": "#b75b00",
+                    "on-primary-container": "#fefcff",
+                    "on-secondary-container": "#fffbff",
+                    "primary-fixed-dim": "#adc6ff",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#23005c",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#004395",
+                    "primary": "#0058be",
+                    "inverse-primary": "#adc6ff",
+                    "surface-container-highest": "#e1e2ec",
+                    "surface-variant": "#e1e2ec",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#311400",
+                    "inverse-on-surface": "#eff0fa",
+                    "on-surface": "#191b23",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#d8e2ff",
+                    "tertiary-fixed": "#ffdcc6",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "on-surface-variant": "#424754",
+                    "outline": "#727785",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-dim": "#d8d9e3",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "background": "#f9f9ff",
+                    "surface-container-high": "#e6e7f2",
+                    "surface-container": "#ecedf7",
+                    "surface-container-low": "#f2f3fd",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2e3038",
+                    "secondary": "#6b38d4",
+                    "outline-variant": "#c2c6d6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "stack-sm": "12px",
+                    "gutter": "24px",
+                    "stack-lg": "48px",
+                    "unit": "8px",
+                    "stack-md": "24px",
+                    "margin-page": "40px"
+            },
+            "fontFamily": {
+                    "h3": ["Inter"],
+                    "h2": ["Inter"],
+                    "caption": ["Inter"],
+                    "h1": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "h2": ["36px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.7", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-image: radial-gradient(circle at top right, #e9ddff 0%, transparent 40%),
+                              radial-gradient(circle at bottom left, #d8e2ff 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface/90 backdrop-blur-2xl border-r border-white/20 shadow-2xl shadow-primary/5 flex flex-col py-stack-sm z-50 overflow-y-auto">
+<div class="px-6 mb-stack-lg">
+<h1 class="font-h3 text-h3 font-bold text-primary">CampusFlow</h1>
+      <p class="text-label-sm font-label-sm text-on-surface-variant mt-1">Admin Portal</p>
+</div>
+<nav class="flex-grow">
+<ul class="space-y-1 px-2">
+<li>
+          <a id="nav-dashboard" class="sidebar-nav-link bg-gradient-to-r from-primary to-secondary text-on-primary rounded-xl px-4 py-3 flex items-center gap-3 transition-transform hover:translate-x-1 active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm">Dashboard</span>
+</a>
+</li>
+<li>
+<a id="nav-buses" class="sidebar-nav-link text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">directions_bus</span>
+<span class="font-label-sm">Manage Buses</span>
+</a>
+</li>
+<li>
+<a id="nav-routes" class="sidebar-nav-link text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm">Manage Routes</span>
+</a>
+</li>
+<li>
+<a id="nav-passes" class="sidebar-nav-link text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="font-label-sm">Pass Requests</span>
+</a>
+</li>
+<li>
+<a id="nav-passengers" class="sidebar-nav-link text-on-surface-variant hover:bg-surface-container-high rounded-xl px-4 py-3 flex items-center gap-3 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-sm">Passengers</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="px-4 mt-auto mb-stack-sm">
+<button class="logout-btn w-full bg-surface-container-highest text-on-surface border border-outline-variant rounded-xl py-3 px-4 font-label-sm flex items-center justify-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                Logout
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-margin-page max-w-container-max mx-auto">
+<div id="dashboard-view" class="view-section block">
+<!-- Header -->
+<header class="flex justify-between items-end mb-stack-lg">
+<div>
+<h2 class="font-h2 text-h2 text-on-background">System Overview</h2>
+<p class="text-body-lg text-on-surface-variant">Welcome back, Admin. Here's what's happening today.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A close-up portrait of a professional male administrator with a warm smile, set against a clean, soft-focus office background. The lighting is bright and even, reflecting a high-key light mode aesthetic with soft blue and white tones that align with the CampusFlow brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7_uHW2-BSpXAjsughJG2HcmZWP5lIP0FM542f48DGexhazXiKc02y_o016wlTuAzws2DKZsDIwHjUm062FPGxXRDNsOQtEp9_I-mG4zszlPDN1HLg7EJmzzUNQB6na8H0Rd7HgRGXPg9PCxejWmqn2T_2-bGgfo8fgZFwu6UjKlWS7rCjZ2E3nS8uqkFjk3ZoP-a0v6heHZqYgxJjBWxdi08SH3dx04PfOd0qLFO7gfQ_79UVBEHyLDjwmcLNbdWJ_5BOH3SpCSg"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A portrait of a confident female operations manager in a professional setting. The image is captured with sharp detail and natural soft lighting, emphasizing a modern and approachable corporate look. The color palette consists of airy whites and subtle lavender accents to match the Glassmorphic Minimalism style of the application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARx51VnuTdTG1K19J50jsJ3D5ZhO_UwzATl8Z0B8LkTdXBxaubboZvejKta4vRof1pHb82FI3h78N9yXG6GcKgbGmSD-jWKx4DIV1_2GfqO9B3u9JDc6MjsHEwztw3AD_7Iw_GfJW6ytnZUSWrE_csprLSgyT-QLsMDIs-jyq1Ei-oxeGUV81lcAjKmqsrz9XWNVlSvWPte8fXLQB7NDV82UwjnHLD9lgHq6SrGKYLJF5evSn2eiEly4-TTmLBMO3_00eXR_S88bc"/>
+</div>
+<button class="bg-surface-container-lowest text-on-surface p-2 rounded-full border border-outline-variant hover:bg-surface-container shadow-sm transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-stack-md mb-stack-lg">
+<!-- Large Metric: Passengers -->
+<div class="md:col-span-2 glass-card rounded-xl p-stack-md flex flex-col justify-between">
+<div>
+<span class="p-2 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">person</span>
+</span>
+<p class="mt-4 font-label-sm text-on-surface-variant">Total Passengers</p>
+</div>
+<div>
+<h3 id="stat-passengers" class="font-h1 text-h1 text-on-background">0</h3>
+<p class="text-caption text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                        +8% from last month
+                    </p>
+</div>
+</div>
+<!-- Medium Metric: Active Buses -->
+<div class="md:col-span-2 glass-card rounded-xl p-stack-md flex flex-col justify-between border-l-4 border-l-secondary">
+<div>
+<span class="p-2 bg-secondary/10 text-secondary rounded-lg">
+<span class="material-symbols-outlined">directions_bus</span>
+</span>
+<p class="mt-4 font-label-sm text-on-surface-variant">Active Buses</p>
+</div>
+<div>
+<h3 id="stat-buses" class="font-h2 text-h2 text-on-background">0</h3>
+<p class="text-caption text-on-surface-variant">92% fleet utilization</p>
+</div>
+</div>
+<!-- Small Metric: Pending Requests -->
+<div class="md:col-span-1 glass-card rounded-xl p-stack-md flex flex-col justify-between bg-gradient-to-br from-white to-tertiary-fixed">
+<div>
+<span class="p-2 bg-tertiary/10 text-tertiary rounded-lg">
+<span class="material-symbols-outlined">schedule</span>
+</span>
+<p class="mt-4 font-label-sm text-on-surface-variant">Pending</p>
+</div>
+<h3 id="stat-pending" class="font-h3 text-h3 text-tertiary">0</h3>
+</div>
+<!-- Small Metric: Routes -->
+<div class="md:col-span-1 glass-card rounded-xl p-stack-md flex flex-col justify-between">
+<div>
+<span class="p-2 bg-primary-fixed-dim/20 text-on-primary-fixed-variant rounded-lg">
+<span class="material-symbols-outlined">route</span>
+</span>
+<p class="mt-4 font-label-sm text-on-surface-variant">Routes</p>
+</div>
+<h3 id="stat-routes" class="font-h3 text-h3 text-on-background">0</h3>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-stack-md">
+<!-- Flow Chart Representation -->
+<div class="lg:col-span-2 glass-card rounded-xl p-stack-md">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-h3 text-h3 text-on-background">Passenger Flow</h4>
+<select class="bg-surface-container-low border-none rounded-lg font-label-sm text-on-surface-variant focus:ring-2 focus:ring-primary-container">
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+<div id="flow-chart" class="h-64 flex items-end justify-between gap-2 px-4">
+<!-- Bars will be injected by JS -->
+</div>
+</div>
+<!-- Pass Distribution Representation -->
+<div class="glass-card rounded-xl p-stack-md flex flex-col">
+<h4 class="font-h3 text-h3 text-on-background mb-4">Pass Distribution</h4>
+<div class="flex-grow flex items-center justify-center relative">
+<!-- Circular Progress Mockup -->
+<div class="w-40 h-40 rounded-full border-[16px] border-surface-container-high relative">
+<div id="distribution-ring" class="absolute inset-[-16px] rounded-full border-[16px] border-secondary border-l-transparent border-b-transparent rotate-45"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span id="approved-percentage" class="font-h3 text-h3">0%</span>
+<span class="text-caption text-on-surface-variant">Approved</span>
+</div>
+</div>
+</div>
+<ul class="space-y-3 mt-6">
+<li class="flex justify-between items-center text-label-sm">
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                            Full-Year Passes
+                        </span>
+<span class="font-bold">65%</span>
+</li>
+<li class="flex justify-between items-center text-label-sm">
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                            Semester Passes
+                        </span>
+<span class="font-bold">25%</span>
+</li>
+<li class="flex justify-between items-center text-label-sm">
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+                            Others
+                        </span>
+<span class="font-bold">10%</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Recent Activity / Task Focused List -->
+<section class="mt-stack-lg">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-h3 text-h3 text-on-background">Recent Pass Requests</h4>
+<button class="text-primary font-label-sm flex items-center gap-1 hover:underline">
+                    View all
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="glass-card rounded-xl overflow-hidden">
+<table class="w-full border-collapse text-left">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Student Name</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">ID Number</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Request Type</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Date</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody id="recent-passes-table-body" class="divide-y divide-surface-container-high">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-[12px]">JS</div>
+<span class="font-label-sm">Jordan Smith</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">STU-2023-049</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface text-caption rounded-full">Annual Pass</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                                    Pending
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-[12px]">EL</div>
+<span class="font-label-sm">Elena Rodriguez</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">STU-2023-112</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface text-caption rounded-full">Semester Pass</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 23, 2023</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                                    Approved
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-dim flex items-center justify-center text-on-surface font-bold text-[12px]">MW</div>
+<span class="font-label-sm">Marcus Wong</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">STU-2023-087</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface text-caption rounded-full">Monthly Pass</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 23, 2023</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                                    Pending
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Dynamic Map Concept -->
+<section class="mt-stack-lg">
+<h4 class="font-h3 text-h3 text-on-background mb-6">Live Fleet Tracking</h4>
+<div class="glass-card rounded-xl h-96 relative overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-low flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-60 mix-blend-multiply" data-alt="A clean, minimalist topographical map of a modern university campus featuring subtle vector lines and architectural outlines. The aesthetic is monochromatic with soft blue highlights representing bus routes and glowing purple dots for active bus locations, perfectly reflecting a high-tech admin control panel interface." data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGKBTudnydlLv5RvqPt22zeMsMVT8vz4fyiJkwl8iCD0K5kvIMrT0L448Ln3o_eJRW1J9BUN642O-98-A087C15DE4FjvUc77vbbJHhSI_bGo2ZX4Zo3vq645l_bdfrcDKgHcjYEkX7eXiw4psglTRV9CTI0HPvlUdbOJ0t4qY2QXPrCxBtZ0GhETBVGHqQ4lCL8IAks2O6bZS_dknHHoZbX2eKqigqLJDb2xnetFCzxcVFAvYqBZG1uqui5Gb_tQb-VphmDod8gM"/>
+<div class="absolute top-1/2 left-1/3 p-2 bg-primary text-on-primary rounded-full shadow-lg">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">directions_bus</span>
+</div>
+<div class="absolute bottom-1/4 right-1/4 p-2 bg-secondary text-on-primary rounded-full shadow-lg">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">directions_bus</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 glass-card p-4 rounded-lg flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-caption font-bold">Route Alpha</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="text-caption font-bold">Route Beta</span>
+</div>
+</div>
+</div>
+</section>
+</div> <!-- End dashboard-view -->
+
+<!-- Other Views -->
+<div id="buses-view" class="view-section hidden mb-stack-lg">
+    <header class="flex justify-between items-end mb-stack-lg">
+        <div>
+            <h2 class="font-h2 text-h2 text-on-background">Manage Buses</h2>
+            <p class="text-body-lg text-on-surface-variant">Add, edit, or remove fleet vehicles.</p>
+        </div>
+        <button id="add-bus-btn" class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-sm shadow-lg shadow-primary/20 active:scale-95 transition-transform flex items-center gap-2">
+            <span class="material-symbols-outlined">add</span> New Bus
+        </button>
+    </header>
+    <div class="glass-card rounded-xl overflow-hidden">
+        <table class="w-full border-collapse text-left">
+            <thead>
+                <tr class="bg-surface-container-low border-b border-outline-variant">
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Bus Number</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Capacity</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="buses-table-body" class="divide-y divide-surface-container-high"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="routes-view" class="view-section hidden mb-stack-lg">
+    <header class="flex justify-between items-end mb-stack-lg">
+        <div>
+            <h2 class="font-h2 text-h2 text-on-background">Manage Routes</h2>
+            <p class="text-body-lg text-on-surface-variant">Configure transit paths and schedules.</p>
+        </div>
+        <button id="add-route-btn" class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-sm shadow-lg shadow-primary/20 active:scale-95 transition-transform flex items-center gap-2">
+            <span class="material-symbols-outlined">add</span> New Route
+        </button>
+    </header>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter" id="routes-grid-container"></div>
+</div>
+
+<div id="passes-view" class="view-section hidden mb-stack-lg">
+    <header class="mb-stack-lg flex justify-between items-end">
+        <div>
+            <h2 class="font-h2 text-h2 text-on-background">Pass Approvals</h2>
+            <p class="text-body-lg text-on-surface-variant">Review and manage student pass applications.</p>
+        </div>
+        <select id="pass-filter" class="bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-2">
+            <option value="">All Statuses</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+        </select>
+    </header>
+    <div class="glass-card rounded-xl overflow-hidden">
+        <table class="w-full border-collapse text-left">
+            <thead>
+                <tr class="bg-surface-container-low border-b border-outline-variant">
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Applicant ID</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Route</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Date</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="passes-table-body" class="divide-y divide-surface-container-high"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="passengers-view" class="view-section hidden mb-stack-lg">
+    <header class="mb-stack-lg">
+        <h2 class="font-h2 text-h2 text-on-background">Passenger Management</h2>
+        <p class="text-body-lg text-on-surface-variant">View all registered passengers.</p>
+    </header>
+    <div class="glass-card rounded-xl overflow-hidden">
+        <table class="w-full border-collapse text-left">
+            <thead>
+                <tr class="bg-surface-container-low border-b border-outline-variant">
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">ID</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Name</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Email</th>
+                    <th class="px-6 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">Phone</th>
+                </tr>
+            </thead>
+            <tbody id="passengers-table-body" class="divide-y divide-surface-container-high"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modals -->
+<div id="bus-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/40 backdrop-blur-sm">
+    <div class="glass-card rounded-2xl p-8 w-full max-w-md bg-surface">
+        <h3 id="bus-modal-title" class="font-h3 text-h3 mb-6 text-on-background">Add Bus</h3>
+        <form id="bus-form" class="space-y-4">
+            <input type="hidden" id="bus-id" />
+            <label class="block">
+                <span class="text-label-sm font-semibold text-on-surface-variant">Bus Number</span>
+                <input id="bus-number" required class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" type="text" />
+            </label>
+            <label class="block">
+                <span class="text-label-sm font-semibold text-on-surface-variant">Capacity</span>
+                <input id="bus-capacity" required min="1" class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" type="number" />
+            </label>
+            <label class="block">
+                <span class="text-label-sm font-semibold text-on-surface-variant">Driver Name</span>
+                <input id="bus-driver-name" required class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" type="text" />
+            </label>
+            <label class="block">
+                <span class="text-label-sm font-semibold text-on-surface-variant">Driver Phone</span>
+                <input id="bus-driver-phone" required class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" type="text" />
+            </label>
+            <div class="flex justify-end gap-4 mt-8">
+                <button type="button" class="close-modal-btn px-6 py-2 text-on-surface-variant hover:text-on-surface font-semibold">Cancel</button>
+                <button type="submit" class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold shadow-md hover:bg-primary/90">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="route-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/40 backdrop-blur-sm">
+    <div class="glass-card rounded-2xl p-8 w-full max-w-xl max-h-[90vh] overflow-y-auto bg-surface">
+        <h3 id="route-modal-title" class="font-h3 text-h3 mb-6 text-on-background">Add Route</h3>
+        <form id="route-form" class="space-y-4">
+            <input type="hidden" id="route-id" />
+            <div class="grid grid-cols-2 gap-4">
+                <label class="block col-span-2">
+                    <span class="text-label-sm font-semibold text-on-surface-variant">Route Name</span>
+                    <input id="route-name" required class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" type="text" />
+                </label>
+                <label class="block">
+                    <span class="text-label-sm font-semibold text-on-surface-variant">Start Point</span>
+                    <input id="route-start" required class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" type="text" />
+                </label>
+                <label class="block">
+                    <span class="text-label-sm font-semibold text-on-surface-variant">End Point</span>
+                    <input id="route-end" required class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" type="text" />
+                </label>
+                <label class="block">
+                    <span class="text-label-sm font-semibold text-on-surface-variant">Timing</span>
+                    <input id="route-timing" placeholder="e.g. Every 15 mins" class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" type="text" />
+                </label>
+                <label class="block">
+                    <span class="text-label-sm font-semibold text-on-surface-variant">Assign Bus</span>
+                    <select id="route-bus-select" class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20">
+                        <option value="">None</option>
+                    </select>
+                </label>
+            </div>
+            <!-- Mock Stops editor for simplicity -->
+            <label class="block col-span-2 mt-4">
+                <span class="text-label-sm font-semibold text-on-surface-variant">Stops (Comma separated)</span>
+                <input id="route-stops" placeholder="Stop 1, Stop 2, Stop 3" class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" type="text" />
+            </label>
+            <div class="flex justify-end gap-4 mt-8">
+                <button type="button" class="close-modal-btn px-6 py-2 text-on-surface-variant hover:text-on-surface font-semibold">Cancel</button>
+                <button type="submit" class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold shadow-md hover:bg-primary/90">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="pass-review-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/40 backdrop-blur-sm">
+    <div class="glass-card rounded-2xl p-8 w-full max-w-md bg-surface">
+        <h3 class="font-h3 text-h3 mb-6 text-on-background">Review Pass Request</h3>
+        <form id="pass-review-form" class="space-y-4">
+            <input type="hidden" id="review-request-id" />
+            <input type="hidden" id="review-action" />
+            <p id="review-prompt-msg" class="text-on-surface-variant mb-2">Are you sure you want to review this pass?</p>
+            <label class="block">
+                <span class="text-label-sm font-semibold text-on-surface-variant">Admin Note (Optional)</span>
+                <textarea id="review-note" class="mt-1 w-full bg-surface-container-lowest border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20" rows="3"></textarea>
+            </label>
+            <div class="flex justify-end gap-4 mt-8">
+                <button type="button" class="close-modal-btn px-6 py-2 text-on-surface-variant hover:text-on-surface font-semibold">Cancel</button>
+                <button type="submit" id="confirm-review-btn" class="px-6 py-2 rounded-xl font-bold shadow-md text-white">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+</main>
+<script src="js/utils.js"></script>
+<script src="js/api.js"></script>
+<script src="js/admin.js"></script>
+</body></html>
